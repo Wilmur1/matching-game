@@ -22,9 +22,8 @@ text4 = font.render("candycrush",True, "white")
 
 
 
-
 def draw():
-     pygame.draw.rect(screen,"white",candyrect)
+     pygame.draw.rect(screen,"white",candy_rect)
      screen.blit(candy,(50,10))
      screen.blit(ludo,(50,210))
      screen.blit(subwaysurfers,(50,410))
@@ -45,5 +44,10 @@ while True:
                pygame.quit()
                sys.exit()
           if event.type == pygame.MOUSEBUTTONDOWN:
-               pygame.draw.circle(screen,"white",pygame.mouse.get_pos(),5)
+               start = pygame.mouse.get_pos()
+               pygame.draw.circle(screen,"white",start,5)
+          if event.type == pygame.MOUSEBUTTONUP:
+               end = pygame.mouse.get_pos()
+               pygame.draw.circle(screen,"white",end,5)
+               pygame.draw.line(screen,"white",start,end,3)
      pygame.display.update()
